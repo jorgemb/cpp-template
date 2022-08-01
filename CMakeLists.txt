@@ -1,8 +1,15 @@
 cmake_minimum_required (VERSION 3.16)
 
-# Add vcpkg
-set(CMAKE_TOOLCHAIN_FILE ${CMAKE_CURRENT_SOURCE_DIR}/vcpkg/scripts/buildsystems/vcpkg.cmake
-        CACHE STRING "Vcpkg toolchain file")
+# Add vcpkg - Allow for global VCPKG installation
+if(DEFINED ENV{VCPKG_ROOT})
+    message("Using global VCPKG at: " $ENV{VCPKG_ROOT})
+    set(CMAKE_TOOLCHAIN_FILE "$ENV{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake"
+            CACHE STRING "Vcpkg toolchain file")
+else()
+    message("Using VCPKG in manifest mode")
+    set(CMAKE_TOOLCHAIN_FILE "${CMAKE_CURRENT_SOURCE_DIR}/vcpkg/scripts/buildsystems/vcpkg.cmake"
+            CACHE STRING "Vcpkg toolchain file")
+endif()
 
 project ("cpp-template")
 set(CMAKE_CXX_STANDARD 17)
