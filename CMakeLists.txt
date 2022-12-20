@@ -7,7 +7,7 @@ if(DEFINED ENV{VCPKG_ROOT})
             CACHE STRING "Vcpkg toolchain file")
 else()
     message("Using VCPKG in manifest mode")
-    set(CMAKE_TOOLCHAIN_FILE "${CMAKE_CURRENT_SOURCE_DIR}/vcpkg/scripts/buildsystems/vcpkg.cmake"
+    set(CMAKE_TOOLCHAIN_FILE "${CMAKE_CURRENT_SOURCE_DIR}/third-party/vcpkg/scripts/buildsystems/vcpkg.cmake"
             CACHE STRING "Vcpkg toolchain file")
 endif()
 
