@@ -11,7 +11,7 @@ else()
             CACHE STRING "Vcpkg toolchain file")
 endif()
 
-project ("cpp-template")
+project ("<project-name>")
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED on)
 
